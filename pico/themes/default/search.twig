@@ -1,0 +1,18 @@
+{% include '_header.twig' %}
+<div id="main">
+	<div class="container">
+		<div class="SearchResults">
+			{% if meta.purpose == "search_results" %}
+					<p class="meta">「{{ search_term }}」の検索結果（{{ search_num_results }} 件）</p>
+					{% for page in search_results %}
+						{% if page.id starts with "articles/" and not page.hidden %}
+							<h3><a href="{{ page.url }}">{{ page.title }}</a></h3>
+							<p class="date">{{ page.date_formatted }}</p>
+							<p class="excerpt">{{ page.description }}</p>
+						{% endif %}
+					{% endfor %}
+			{% endif %}
+		</div>
+	</div>
+</div>
+{% include '_footer.twig' %}

@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+    apache:
+      build: ./apache
+      volumes:
+        - ../pico:/var/www/html
+        - ./apache/httpd.conf:/etc/httpd/conf/httpd.conf
+        - ./apache/php.ini:/etc/php.ini
+      ports:
+        - "11080:80"

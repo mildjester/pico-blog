@@ -1,0 +1,14 @@
+{% include '_header.twig' %}
+<div id="main">
+    <div class="container">
+        {% if meta.title %}<h2>{{ meta.title }}</h2>{% endif %}
+        <ul>
+        {% for page in pages %}
+            {% if page.id starts with "tags/" and not page.hidden %}
+                    <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+{% include '_footer.twig' %}

@@ -1,0 +1,16 @@
+{% include '_header.twig' %}
+<div id="main">
+    <div class="container">
+        {% if meta.title %}<h2>{{ meta.title }}</h2>{% endif %}
+        {% for page in pages|sort_by("time")|reverse %}
+            {% if page.id starts with "articles/" and not page.hidden %}
+                <div class="post">
+                    <h3><a href="{{ page.url }}">{{ page.title }}</a></h3>
+                    <p class="date">{{ page.date_formatted }}</p>
+                    <p class="excerpt">{{ page.description }}</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% include '_footer.twig' %}

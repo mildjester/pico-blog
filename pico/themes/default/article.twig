@@ -1,0 +1,17 @@
+{% include '_header.twig' %}
+<div id="main">
+    <div class="container">
+        {% if meta.title %}<h2>{{ meta.title }}</h2>{% endif %}
+        <p class="meta"><b>
+            投稿日：{{ meta.date_formatted }}
+            <span class="article_tags">
+                タグ：
+                {% for tag in meta.tags %}
+                <a href="/tags/{{ tag }}" />{{ tag }}</a> 
+                {% endfor %}
+            </span>
+        </b></p>
+        {{ content }}
+    </div>
+</div>
+{% include '_footer.twig' %}
